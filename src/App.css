@@ -55,7 +55,7 @@ ul li {
 .app {
 
     width: 100%;
-    height: 100vh;
+    height: 100svh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -92,14 +92,15 @@ ul li {
     align-items: stretch;
     justify-content: space-between;
     gap: 20px;
-    width: 550px;
-    /* margin: 10px auto; */
+    width: 45%;
+    min-width: 300px;
+    max-width: 1600px;
 }
 
 .todo-head {
 
     display: flex;
-    flex-flow: row wrap;
+    height: 60px;
     align-items: center;
     justify-content: space-between;
     transition: all .3s ease-in-out;
@@ -256,6 +257,55 @@ ul li {
 
     text-decoration: line-through;
 }
+
+
+
+@media screen and (max-width: 430px) {
+    .todos-box {
+
+        width: 95%;
+    }
+
+    .mini-circle {
+
+        width: 20px;
+        height: 19px;
+    }
+
+    .todo-head h1 {
+
+        margin-bottom: 0;
+        margin-top: 5px;
+        font-size: 2rem;
+    }
+
+    .todo-head img {
+
+        height: 25px;
+    }
+
+    .todo-input-form input {
+
+        font-size: .9rem;
+    }
+
+    .todo-list .todo-item p {
+
+        font-size: .8rem;
+    }
+}
+
+@media screen and (max-width: 380px) { 
+
+    .mini-circle {
+
+        width: 18px;
+        height: 17px;
+    }
+}
+
+
+
 
 .light-theme .plane-bg {
 
