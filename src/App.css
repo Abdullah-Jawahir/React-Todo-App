@@ -1,0 +1,299 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+/* @import url(./assets/bg-desktop-dark.jpg); */
+
+
+:root {
+
+    /* Primary */
+    --bright-blue: hsl(220, 98%, 61%);
+    --check-bg-dark: linear-gradient(to bottom, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+    --check-bg-light: linear-gradient(to bottom,hsl(280, 87%, 65%), hsl(192, 100%, 67%));
+
+    /* Light Theme */   
+    --very-light-gray: hsl(0, 0%, 98%);
+    --very-light-grayish: hsl(236, 33%, 92%);
+    --light-grayish-blue: hsl(233, 11%, 84%);
+    --dark-grayish-blue: hsl(236, 9%, 61%);
+    --very-dark-grayish-blue: hsl(235, 19%, 35%);
+
+
+    /* Dark Theme */
+    --very-dark-blue: hsl(235, 21%, 11%);
+    --very-dark-desaturated-blue: hsl(235, 24%, 19%);
+    --light-grayish-blue: hsl(234, 39%, 85%);
+    --light-grayish-blue-hover: hsl(236, 33%, 92%);
+    --dark-grayish-blue: hsl(234, 11%, 52%);
+    --very-dark-grayish-blue: hsl(233, 14%, 35%);
+    --very-dark-grayish-blue-hover: hsl(237, 14%, 26%);
+
+}
+
+
+* {
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 18px;
+    color: var(--light-grayish-blue);
+    
+}
+
+#root {
+
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+ul li {
+
+    list-style: none;
+}
+
+.app {
+
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner {
+
+    width: 100%;
+    flex: .4;
+    background-image: url(./assets/bg-desktop-dark.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    transition: all .25s ease-in-out;
+}
+
+.plane-bg {
+
+    flex: .6;
+    width: 100%;
+    background-color: var(--very-dark-blue);
+    transition: background-color .25s ease-in-out;
+}
+
+.todos-box {
+
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 20px;
+    width: 550px;
+    /* margin: 10px auto; */
+}
+
+.todo-head {
+
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+    transition: all .3s ease-in-out;
+}
+
+.todo-head h1 {
+
+    text-transform: uppercase;
+    color: #f7f7f7;
+    font-size: 2.2rem;
+    font-weight: 550;
+    letter-spacing: 10px;
+    margin-bottom: 10px;
+}
+
+.todo-head img {
+
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+
+.todo-control {
+
+    gap: 20px;
+    padding: 20px 25px;
+}
+
+.mini-circle {
+
+    width: 23px;
+    height: 23px;
+    border-radius: 50%;
+    position: relative;
+    background: var(--check-bg-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all .25s ease-in-out;
+}
+
+.mini-circle::after {
+
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 10%;
+    width: 90%;
+    height: 90%;
+    background-color: var(--very-dark-desaturated-blue);
+    border-radius: 50%;
+    transition: all .25s ease-in-out;
+}
+
+.todo-input-form {
+
+    background-color: var(--very-dark-desaturated-blue);
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    border-radius: 5px;
+    padding: 0 25px;
+    transition: background-color .25s ease-in-out;
+}
+
+.todo-input-form .mini-circle {
+
+    cursor: default;
+    border: none;
+    outline: none;
+    width: 25px;
+    height: 23px;
+}
+
+.todo-input-form input {
+
+    background-color: transparent;
+    border: none;
+    outline: none;
+    height: 100%;
+    width: 100%;
+    padding: 20px 0;
+    transition: color .25s ease-in-out;
+}
+
+
+.todo-list {
+
+    background-color: var(--very-dark-desaturated-blue);
+    border-radius: 5px;
+    overflow: hidden;
+    transition: background-color .25s ease-in-out;
+    max-height: 450px;
+    overflow-y: scroll;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.6), -1px -1px 10px rgba(255, 255, 255, 0.7);
+}
+
+/* For light theme */
+.light-theme .todo-list {
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1), -1px -1px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* For dark theme */
+.dark-theme .todo-list {
+    box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.1), -1px -1px 10px rgba(255, 255, 255, 0.1);
+}
+
+.todo-list::-webkit-scrollbar {
+
+    width: 0;
+}
+
+.todo-item {
+
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    border-bottom: 1px solid var(--very-dark-grayish-blue-hover);
+    background-color: transparent;
+    transition: border .25s ease-in-out;
+}
+
+.todo-item:last-child {
+
+    border-bottom: none;
+}
+
+.todo-item p {
+
+    transition: color .25s ease-in-out;
+}
+
+.todo-item .del-icon {
+
+    margin-left: auto;
+    transition: all .25s ease-in-out;
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.todo-item:hover .del-icon {
+
+    visibility: visible;
+    opacity: 1;
+}
+
+.comp-todo .mini-circle::after {
+
+    left: 100%;
+}
+
+.comp-todo p{
+
+    text-decoration: line-through;
+}
+
+.light-theme .plane-bg {
+
+    background-color: var(--very-light-gray);
+}
+
+.light-theme .todos-box .todo-input-form {
+
+    background-color: #fff;
+}
+
+.light-theme .todos-box .todo-input-form input {
+
+    color: var(--very-dark-grayish-blue);
+}
+
+.light-theme .todos-box .todo-input-form input::placeholder {
+
+    color: var(--dark-grayish-blue);
+}
+
+.light-theme .todos-box .todo-list {
+
+    background-color: #fff;
+}
+
+.light-theme .todos-box .todo-control .mini-circle::after {
+
+    background-color: #fff;
+}
+
+.light-theme .todos-box .todo-list .todo-item {
+
+    border-bottom-color: var(--light-grayish-blue-hover);
+    
+}
+
+.light-theme .todos-box .todo-list .todo-item p {
+
+    color: var(--very-dark-grayish-blue);
+}
